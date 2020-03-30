@@ -8,7 +8,7 @@ import time
 
 id = 'happine2s'
 pwd = 'psy3813!'
-driver = webdriver.Chrome('C:\\Users\\user\\Desktop\\chromedriver.exe')#바꿀까??ㅇ 실행?ㅇㅇ
+driver = webdriver.Chrome('C:\\Users\\user\\Desktop\\chromedriver.exe')
 main = "https://ticket.interpark.com/Gate/TPLogin.asp?CPage=B&MN=Y&tid1=main_gnb&tid2=right_top&tid3=login&tid4=login"
 musical = "http://ticket.interpark.com/Ticket/Goods/GoodsInfo.asp?GoodsCode=20001033"
 
@@ -58,7 +58,7 @@ def select_seat():
 
     #bs4로 html 파싱하기
     req = driver.page_source #문자열-driver.page_source : 브라우저에 보이는 그대로의 탭내용
-    dummy = bs4(req, 'html.parser') #req 문자열을 html관점에서 읽어달라여
+    dummy = bs4(req, 'html.parser') #req 문자열을 html관점에서 읽어달라
     li = dummy.find_all('img') #img있는거 다 찾아라.
     item = str(li[1])
     #seat = (etree.HTML(item)).xpath
@@ -73,7 +73,6 @@ def select_seat():
     driver.switch_to.frame(driver.find_element_by_id('ifrmSeat'))
     element=driver.find_element_by_xpath('//*[@id="NextStepImage"]')
     driver.execute_script("arguments[0].click();",element)
-    #href에 자바스크립트에 함수이름 박음ㄴ 되는거
     #자바스크립트가 잇는 엑스페스를 복사 -> 코드가 존재
     #argument[0](첫번째거) : element 클릭햇을때 거기에 자바스크립트가 있으면 실행해라
 
